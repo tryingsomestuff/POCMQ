@@ -2,7 +2,7 @@ function launch_command(){
    console.log("Button clicked");
    console.log(document.getElementById('input').value);
    $.ajax({
-      url: 'http://192.168.1.19:5000/run/'+document.getElementById('input').value,
+      url: 'http://ks.x-ray.fr:5000/run/'+document.getElementById('input').value,
       dataType: 'text',
       complete: function(data){
          console.log(data)
@@ -24,7 +24,7 @@ function launch_command_id(){
    console.log("Button id clicked");
    console.log(document.getElementById('input').value);
    $.ajax({
-      url: 'http://192.168.1.19:5000/id/'+document.getElementById('inputid').value,
+      url: 'http://ks.x-ray.fr:5000/id/'+document.getElementById('inputid').value,
       dataType: 'text',
       complete: function(data){
          console.log(data);
