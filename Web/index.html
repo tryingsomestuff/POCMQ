@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="test.js"></script>
+</script>
+</head>
+<body>
+<div class="container">
+  <h2>Test lancement commande sur serveur via celery et flask</h2>
+  <form>
+    <div class="form-group">
+      <label for="input">Commande à exécuter:</label>
+      <input type="text" id="input">
+      <input type="button" class="btn btn-primary btn-md" onclick="launch_command()" value="Lancer !">
+      <p>Le resultat de la commande sera ci-dessous:</p>
+      <label for="output">Sortie:</label>
+      <textarea class="form-control" rows="5" id="output" ></textarea>
+      <br><br>
+      <label for="inputid">Id a vérifier:</label>
+      <input type="text" id="inputid">
+      <input type="button" class="btn btn-primary btn-md" onclick="launch_command_id()" value="Vérifier !">
+      <p>Le retour de la commande sera ci-dessous:</p>
+      <label for="outputid">Sortie:</label>
+      <textarea class="form-control" rows="5" id="outputid" ></textarea>
+    </div>
+  </form>
+</div>
+</body>
+</html>
