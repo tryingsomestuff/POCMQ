@@ -28,11 +28,17 @@ def runtask(keyword):
 @app.route('/id/<uid>')
 def idresult(uid):
     result = AsyncResult(uid)
-    data = {
-        'hello'  : 'world',
-        'id' : uid,
-        'result' : result.get(timeout=1)
-    }
+    try:
+        if result.ready():
+           data = {
+               'hello'  : 'world',
+               'id' : uid,
+               'result' : result.get(timeout=1)
+           }
+        else:
+           data = { 'state' : 'not ready'}
+    except:
+        data = { 'state' : 'not ready'}
     js = json.dumps(data)
     resp = Response(js, status=200, mimetype='application/json')
     return resp
