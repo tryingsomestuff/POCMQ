@@ -7,12 +7,15 @@ from task import run
 
 from celery.result import AsyncResult
 
+import base64
+
 app = Flask(__name__)
 CORS(app)
 
 @app.route('/run/<keyword>')
 def runtask(keyword):
-    result = run.apply_async((keyword,''))
+    d = base64.b64decode(keyword)
+    result = run.apply_async((d,""))
     data = {
         'hello'  : 'world',
         'keyword' : keyword,
@@ -28,7 +31,7 @@ def idresult(uid):
     data = {
         'hello'  : 'world',
         'id' : uid,
-        'result' : result.get(timeout=300)
+        'result' : result.get(timeout=1)
     }
     js = json.dumps(data)
     resp = Response(js, status=200, mimetype='application/json')

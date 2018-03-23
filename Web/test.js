@@ -2,7 +2,7 @@ function launch_command(){
    console.log("Button clicked");
    console.log(document.getElementById('input').value);
    $.ajax({
-      url: 'http://ks.x-ray.fr:5000/run/'+document.getElementById('input').value,
+      url: 'http://ks.x-ray.fr:5000/run/'+Base64.encode(document.getElementById('input').value),
       dataType: 'text',
       complete: function(data){
          console.log(data)
